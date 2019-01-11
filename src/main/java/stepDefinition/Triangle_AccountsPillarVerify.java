@@ -28,7 +28,7 @@ public class Triangle_AccountsPillarVerify extends TestRunner{
 	
 	@Given("^App is in home pillar$")
 	public void app_is_in_home() throws Throwable {
-		
+		Assert.assertEquals(true, TestRunner.elogin);
 		System.out.println("Second Scenario Started");
 		System.out.println("User is in Home tab");
 		test.log(LogStatus.PASS, "App is in home");
@@ -50,16 +50,17 @@ public class Triangle_AccountsPillarVerify extends TestRunner{
 		
 		String aTitleAccounts=tri_obj_repo_Accounts.getAccountsTabTitle();
 		String eTitleAccounts="Account";
-		try{
+		//try{
 			
 			Assert.assertEquals(aTitleAccounts, eTitleAccounts);
+			Reporter.addStepLog("Accounts litle not matched");
 			//test.log(LogStatus.PASS, "Accounts litle matched");					
-		}catch(Error e){
+		/*}catch(Error e){
 			System.out.println(e.getMessage());
 			System.out.println("Accounts litle not matched");
 			Reporter.addStepLog("Accounts litle not matched");
 			test.log(LogStatus.WARNING, "Accounts litle not matched");	
-		}
+		}*/
 		
 		
 	}
@@ -72,6 +73,15 @@ public class Triangle_AccountsPillarVerify extends TestRunner{
 		String aCardTitle=tri_obj_repo_Accounts.getAccountsCardTitle();
 		String eCardTitle="Triangle RewardsTM Card®";
 		Assert.assertEquals(aCardTitle, eCardTitle);
+		if(eCardTitle.equals(aCardTitle)){
+			
+			Reporter.addStepLog("Accounts title displaying as expected");
+		}else{
+			
+			Reporter.addStepLog("Accounts title not displaying as expected");
+			Assert.assertEquals(true, false);
+		}
+		
 		//test.log(LogStatus.PASS, "Verify card title");
 	}
 	
@@ -81,6 +91,16 @@ public class Triangle_AccountsPillarVerify extends TestRunner{
 		String aCardNumber=tri_obj_repo_Accounts.getAccountsCardNumber();
 		String eCardNumber="4942";
 		Assert.assertEquals(aCardNumber, eCardNumber);
+		
+		if(eCardNumber.equals(aCardNumber)){
+			
+			Reporter.addStepLog("Card number displaying as expected");
+		}else{
+			
+			Reporter.addStepLog("Card number not displaying as expected");
+			Assert.assertEquals(true, false);
+		}
+		
 		//test.log(LogStatus.PASS, "Verify four digit Card number");
 	}
 

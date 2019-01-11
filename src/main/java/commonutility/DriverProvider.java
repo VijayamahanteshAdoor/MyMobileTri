@@ -28,6 +28,9 @@ public class DriverProvider {
 	
 	//public static ExtentReports extent;
 	//public static ExtentTest test;
+	  public static final String USERNAME = "v.mantu409@gmail.com";
+	  public static final String ACCESS_KEY = "inside409";
+	  public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
 	
 	static{
         
@@ -40,6 +43,9 @@ public class DriverProvider {
 		
 			try{
 				
+				
+				
+				
 			DesiredCapabilities capabilities =new DesiredCapabilities();
 			//capabilities.setCapability("BROWSER_NAME", "Android");
 			//capabilities.setCapability("VERSION", "6.0.1");
@@ -51,10 +57,16 @@ public class DriverProvider {
 	       // capabilities.setCapability("fullReset", true);
 			capabilities.setCapability("appPackage", propdata.readDataFromPropertyFile("App_Package",Constants.TRIANGLE_CAPABILITIES));
 			capabilities.setCapability("appActivity", propdata.readDataFromPropertyFile("App_Activity",Constants.TRIANGLE_CAPABILITIES));
-			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 			
+			capabilities.setCapability("browserName", "");
+		    capabilities.setCapability("deviceOrientation", "portrait");
+		    capabilities.setCapability("appiumVersion", "1.6.4");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			//driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+			driver = new AndroidDriver(new URL("https://v.mantu409@gmail.com:inside409@ondemand.saucelabs.com:80/wd/hub"),capabilities);
+			//driver = new AndroidDriver(new URL(URL), capabilities);
+			
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
 			//ExcelReadWrite excelrw = new ExcelReadWrite();
 			ExcelReadWrite.setExcel(Constants.PATH_TESTDATA, Constants.FILE_TESTDATA);			

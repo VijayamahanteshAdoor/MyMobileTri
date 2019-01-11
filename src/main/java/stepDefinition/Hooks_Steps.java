@@ -16,6 +16,7 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 
 import cucumber.api.java.Before;
+import junit.framework.Assert;
 
 
 public class Hooks_Steps extends DriverProvider {
@@ -75,6 +76,7 @@ public class Hooks_Steps extends DriverProvider {
 	@Before("@Start")
     public void beforeFirst(){
         System.out.println("This will run only before the First Scenario");
+       
         driverProvider.launchApp();      
     }
 	/*@After("@First")

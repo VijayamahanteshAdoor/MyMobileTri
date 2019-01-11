@@ -22,7 +22,7 @@ UtilityMethod propdata =new UtilityMethod();
 			TC_Accept_btn.click();
 			
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			//System.out.println(e.getMessage());
 		}
 		
 	}

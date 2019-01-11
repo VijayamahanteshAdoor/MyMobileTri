@@ -34,6 +34,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 public class TestRunner extends AbstractTestNGCucumberTests{
 	public static ExtentReports extent;
 	public static ExtentTest test;
+	public static boolean elogin=false;
 	
 			   
 	@BeforeSuite

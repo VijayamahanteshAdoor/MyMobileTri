@@ -13,10 +13,12 @@ public class Constants {
 	public static final String TRIANGLE_HOMEOBJREPO="PropertiesFiles\\TriangleObjectrepoHome.properties";
 	public static final String TRIANGLE_ACCOUNTSOBJREPO="PropertiesFiles\\TriangleObjectrepoAccounts.properties";
 	public static final String TRIANGLE_OFFERSOBJREPO="PropertiesFiles\\TriangleObjectrepoOffers.properties";
+	public static final String TRIANGLE_MESSAGESOBJREPO="PropertiesFiles\\TriangleObjectrepoMessages.properties";
 	public static final String TRIANGLE_NOTIFICATIONALERTOBJREPO="PropertiesFiles\\TriangleObjectrepoNotificationAlert.properties";
 	public static final String TRIANGLE_TCINITIALOBJREPO="PropertiesFiles\\TriangleObjectrepoTCinitial.properties";
 	public static final String TRIANGLE_APPTABOBJREPO="PropertiesFiles\\TriangleObjectrepoAppTab.properties";
 	public static final String TRIANGLE_SIGNINOBJREPO="PropertiesFiles\\TriangleObjectrepoSignIn.properties";
 	public static final String TRIANGLE_TOUROBJREPO="PropertiesFiles\\TriangleObjectrepoTour.properties";
+	
 	
 }

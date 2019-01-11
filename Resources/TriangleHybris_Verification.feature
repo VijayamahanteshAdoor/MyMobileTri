@@ -51,7 +51,7 @@
  Then Verify message title
  Then Verify inbox title
  Then Verify saved messages title
- Then Verify inbox messages available
+ Then Verify inbox messages not available
  Then Verify saved messages available 
 
 

@@ -16,6 +16,7 @@ import commonutility.Log;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.sourceforge.cobertura.reporting.Report;
 import trianglePageObjectrepo.TriangleObjRepo_HomePage;
 import trianglePageObjectrepo.TriangleObjRepo_NotificationAlert;
 import trianglePageObjectrepo.TriangleObjRepo_SignInPage;
@@ -98,8 +99,18 @@ public class Triangle_HybrisLoginVerify extends TestRunner{
 	public void Verify_Hybris_Login() throws Throwable {
 		
 		String aTitlehome=tri_obj_repo_Homepage.getHomeTitle();
-		System.out.println("This litle "+aTitlehome);
+		//System.out.println("This title "+aTitlehome);
 		String eTitlehome="Welcome!";
+		if(eTitlehome.equals(aTitlehome)){
+			TestRunner.elogin = true;
+			Reporter.addStepLog("Home title is displaying as expected");
+		}else{
+			TestRunner.elogin = false;
+			Reporter.addStepLog("Hybris not logged in successfully");
+			Assert.assertEquals(true, TestRunner.elogin);
+		}
+		
+		
 		//try{
 			Assert.assertEquals(aTitlehome, eTitlehome);
 			//test.log(LogStatus.PASS, "home litle matched");

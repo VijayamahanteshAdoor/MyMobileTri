@@ -21,7 +21,7 @@ public class Triangle_OfferPillarVerify extends TestRunner {
 	
 	@Given("^App is in Account pillar$")
 	public void app_is_in_home() throws Throwable {
-		
+		Assert.assertEquals(true, TestRunner.elogin);
 		System.out.println("thrid Scenario Started");
 		System.out.println("User is in account tab");
 		
@@ -43,7 +43,17 @@ public class Triangle_OfferPillarVerify extends TestRunner {
 	public void verify_offer_title() throws Throwable {
 		String aTitleOffers=tri_obj_repo_Offers.getOffersTabTitle();
 		String eTitleOffers="Offers";
-		try{
+		
+		if(eTitleOffers.equals(aTitleOffers)){
+			
+			Reporter.addStepLog("Offers title displaying as expected");
+		}else{
+			
+			Reporter.addStepLog("Offers title not displaying as expected");
+			Assert.assertEquals(true, false);
+		}
+		
+		/*try{
 			
 			Assert.assertEquals(aTitleOffers, eTitleOffers);
 			//test.log(LogStatus.PASS, "Accounts litle matched");					
@@ -51,21 +61,21 @@ public class Triangle_OfferPillarVerify extends TestRunner {
 			System.out.println(e.getMessage());
 			System.out.println("Offers litle not matched");
 			Reporter.addStepLog("Offers litle not matched");
-			test.log(LogStatus.WARNING, "Accounts litle not matched");	
-		}
+			test.log(LogStatus.WARNING, "Offers litle not matched");	
+		}*/
 		
 	}
 
 	@Then("^Verify offer available$")
 	public void verify_offer_available() throws Throwable {
-		String Accounts_LoyaltyTnxtxt = "Offers available";
+		//String Offers_Emptytxt = "Offers available";
 		String aOffers_Empty=tri_obj_repo_Offers.getOffersEmptytxt();
 		String eOffers_Empty="Looks like you do not have any offers at this time.";
 		try{
 			Assert.assertEquals(aOffers_Empty, eOffers_Empty);
 		}catch(Error e){
 			System.out.println(e.getMessage());
-			Reporter.addStepLog(Accounts_LoyaltyTnxtxt);
+			Reporter.addStepLog("No offers available");
 		}
 		//test.log(LogStatus.PASS, "Verify Recent Transactions");
 	}
